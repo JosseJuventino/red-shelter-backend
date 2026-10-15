@@ -20,6 +20,13 @@ spring:
 app:
   jwt:
     secret: ${JWT_SECRET}
+  auth:
+    access-ttl: ${AUTH_ACCESS_TTL:15m}
+    refresh-ttl-web: ${AUTH_REFRESH_TTL_WEB:12h}
+    refresh-ttl-mobile: ${AUTH_REFRESH_TTL_MOBILE:30d}
+    max-sessions: ${AUTH_MAX_SESSIONS:5}
+    cleanup-retention: ${AUTH_CLEANUP_RETENTION:30d}
+    cleanup-cron: "0 0 3 * * *"
 seed:
   admin:
     enabled: ${ADMIN_SEED_ENABLED:false}
